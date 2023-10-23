@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Example</title>
+    <link rel="stylesheet" id="theme-style" href="light-theme.css">
+    <script>
+        function toggleDarkMode() {
+            const themeStyle = document.getElementById('theme-style');
+            
+            if (themeStyle.getAttribute('href') === 'light-theme.css') {
+                themeStyle.setAttribute('href', 'dark-theme.css');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeStyle.setAttribute('href', 'light-theme.css');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Check for user's theme preference in localStorage
+        const userTheme = localStorage.getItem('theme');
+        if (userTheme === 'dark') {
+            toggleDarkMode();
+        }
+    </script>
+</head>
+<body>
+    <h1>Dark Mode Example</h1>
+    <p>Click the button to toggle dark mode:</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+</body>
+</html>
